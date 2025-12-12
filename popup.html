@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <style>
+    body {
+      width: 320px;
+      padding: 20px;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      margin: 0;
+    }
+    h2 {
+      margin: 0 0 15px 0;
+      font-size: 18px;
+      color: #10a37f;
+    }
+    .option {
+      margin: 10px 0;
+    }
+    label {
+      display: flex;
+      align-items: center;
+      cursor: pointer;
+      padding: 8px;
+      border-radius: 6px;
+      transition: background-color 0.2s;
+    }
+    label:hover {
+      background-color: #f7f7f8;
+    }
+    input[type="radio"] {
+      margin-right: 10px;
+      cursor: pointer;
+    }
+    button {
+      width: 100%;
+      padding: 12px;
+      background-color: #10a37f;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      font-size: 14px;
+      font-weight: 600;
+      cursor: pointer;
+      margin-top: 15px;
+      transition: background-color 0.2s;
+    }
+    button:hover {
+      background-color: #0d8c6c;
+    }
+    button:disabled {
+      background-color: #ccc;
+      cursor: not-allowed;
+    }
+    .status {
+      margin-top: 10px;
+      padding: 10px;
+      border-radius: 6px;
+      font-size: 12px;
+      text-align: center;
+      display: none;
+    }
+    .status.success {
+      background-color: #d4edda;
+      color: #155724;
+      display: block;
+    }
+    .status.error {
+      background-color: #f8d7da;
+      color: #721c24;
+      display: block;
+    }
+    .status.loading {
+      background-color: #d1ecf1;
+      color: #0c5460;
+      display: block;
+    }
+  </style>
+</head>
+<body>
+  <h2>💬 Export to PDF</h2>
+  
+  <div class="option">
+    <label>
+      <input type="radio" name="filter" value="both" checked>
+      <span>📝 Both (You & ChatGPT)</span>
+    </label>
+  </div>
+  
+  <div class="option">
+    <label>
+      <input type="radio" name="filter" value="user">
+      <span>👤 Your Messages Only</span>
+    </label>
+  </div>
+  
+  <div class="option">
+    <label>
+      <input type="radio" name="filter" value="assistant">
+      <span>🤖 ChatGPT Responses Only</span>
+    </label>
+  </div>
+  
+  <button id="exportBtn">Generate PDF</button>
+  
+  <div id="status" class="status"></div>
+  
+  <script src="popup.js"></script>
+</body>
+</html>
